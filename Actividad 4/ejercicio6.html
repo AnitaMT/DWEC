@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 6</title>
+
+    <script>
+        window.onload = function(){
+            const cX = document.getElementById('cX');
+            const cY = document.getElementById('cY');
+
+            document.addEventListener('mousemove', function(event){
+                cX.value = event.screenX;
+                cY.value = event.screenY;
+            });
+        };
+    </script>
+</head>
+
+<body>
+
+    <div style="margin-bottom: 1em;">
+        <label>Coordenada X</label>
+        <input id="cX"> 
+    </div>
+
+    <div>
+        <label>Coordenada Y</label>
+        <input id="cY"> 
+    </div>
+
+</body>
+
+</html>
