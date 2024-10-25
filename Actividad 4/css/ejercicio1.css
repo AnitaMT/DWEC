@@ -1,0 +1,11 @@
+#boton{
+    padding: 10px 20px;
+    background-color: magenta;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+p{
+    text-align: center;
+}
