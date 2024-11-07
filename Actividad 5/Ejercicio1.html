@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1</title>
+
+    <script>
+        let diasSemana=["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
+        let numero = Number(prompt("Introduce un número del 0 - 6 y te diré el día de la semana: "));
+
+        for (let i = 0; i < diasSemana.length; i++){
+            if (numero >= 0 && numero <= 6){
+                console.log("El día de la semana " + numero + " es: " + diasSemana[numero])
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <h1>Días de la semana</h1>
+    <p>Resultados mostrados por consola</p>
+</body>
+</html>
+

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 4</title>
+
+    <script>
+        let numeros = [];
+
+        let entrada = 1;
+        let indice = 0;
+
+        while(entrada != 0 && !(isNaN(entrada))){
+            entrada = Number(prompt("Introduce números. (Para salir introduce el 0): "));
+            if(entrada!=0 && !(isNaN(entrada))){
+                numeros[indice] = entrada;
+                indice++;
+            }else{
+                alert("Has finalizado. Abre la consola para ver el array.");
+            }
+
+        }
+        
+        let pares = 0;
+        let impares = 0;
+
+        for(let i = 0; i < numeros.length; i++){
+            if (numeros[i] % 2 == 0){
+                pares++;
+            }else{
+                impares++;
+            }
+        }
+
+        console.log(numeros);
+        console.log("Hay " + pares + " números pares en el array.");
+        console.log("Hay " + impares + " números impares en el array.");
+    </script>
+
+</head>
+<body>
+    <h1>Números pares e impares de una lista</h1>
+    <p>Resultados mostrados por consola.</p>
+</body>
+</html>

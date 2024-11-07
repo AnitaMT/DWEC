@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 10</title>
+
+    <script>
+
+        function precio(producto){
+            let productos = [
+            ["monitor", 200],
+            ["teclado", 20],
+            ["raton", 10]
+        ];
+
+        let precio = "";
+        for(let i = 0; i < productos.length; i++){
+            if(productos[i][0] == producto.toLowerCase()){
+                precio = `El precio del producto '${producto}' es de: ${productos[i][1]}€.`;
+                return precio;
+            }
+        }
+        if (precio == ""){
+            return `No existe ese producto.`;
+        }
+        }
+
+        console.log(precio("monitor"));
+    </script>
+</head>
+<body>
+    <h1>Tienda tecnológica (consulta precios)</h1>
+    <p>Resultados mostrados por consola.</p>
+</body>
+</html>

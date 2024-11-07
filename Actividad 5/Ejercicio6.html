@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 6</title>
+
+    <script>
+        let letras = ["a", "r", "s", "f", "e"];
+
+        function existeEn(letra, listaLetras){
+            for (let i = 0; i < listaLetras.length; i++){
+                if (letra == listaLetras[i]){
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        console.log(existeEn("r", letras));
+    </script>
+</head>
+<body>
+    <h1>Verificar si una letra se encuentra en un Array</h1>
+    <p>Resultados mostrados por consola.</p>
+</body>
+</html>

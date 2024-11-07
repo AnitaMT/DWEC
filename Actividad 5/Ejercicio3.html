@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 3</title>
+
+    <script>
+        let numeros = [2,4,5,1,2]
+
+        function sumaLista(listaNumeros){
+            let resultado = 0
+            
+            for(let i = 0; i < listaNumeros.length; i++){
+                resultado = resultado + listaNumeros[i]; 
+            }
+            return resultado;
+        }
+
+        console.log(sumaLista(numeros));
+    </script>
+</head>
+<body>
+    <h1>Función sumaLista()</h1>
+    <p>Resultado mostrado por consola.</p>
+</body>
+</html>

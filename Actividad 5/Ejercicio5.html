@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 5</title>
+
+    <script>
+        let numeros = [2,8,7,1,5]
+        
+        function min(listaNumeros, letra){
+            let numeroMenor = Number.MAX_SAFE_INTEGER;
+            if (letra == "v"){
+                for (let i = 0; i < listaNumeros.length; i++){
+                    if(listaNumeros[i] < numeroMenor){
+                        numeroMenor = listaNumeros[i];
+                    }
+                }
+                return `El número más pequeño del array es: ${numeroMenor}`;
+
+            } else if (letra == "i"){
+                let numeroMenor = Number.MAX_SAFE_INTEGER;
+                let indice = 0;
+                for (let i = 0; i < listaNumeros.length; i++){
+                    if(listaNumeros[i] < numeroMenor){
+                        numeroMenor = listaNumeros[i];
+                        indice = i;
+                    }
+                }
+                return `El índice del número más pequeño del array es: ${indice}`;
+            }
+        }
+
+        console.log(`-> Array de números: ${numeros} <-`)
+        console.log(min(numeros, "v"));
+        console.log(min(numeros, "i"));
+    </script>
+</head>
+<body>
+    <h1>Número más pequeño</h1>
+    <p>Resultados mostrados en consola.</p>
+</body>
+</html>

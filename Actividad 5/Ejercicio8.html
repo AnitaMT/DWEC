@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 8</title>
+
+    <script>
+        let colores = ["rojo", "verde", "azul", "morado"];
+
+        function listar(lista){
+            let resultado = "";
+            for(let i = 0; i< lista.length; i++){
+                if(i == lista.length -1){
+                    resultado = resultado + `${lista[i]}`;
+                }else{
+                resultado = resultado +`${lista[i]}-`;
+                }
+            }
+            return resultado;
+        }
+
+        console.log(listar(colores));
+    </script>
+</head>
+<body>
+    <h1>Elementos del array separados por guión</h1>
+    <p>Resultados mostrados por consola.</p>
+</body>
+</html>
