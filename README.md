@@ -1,6 +1,6 @@
 # DWEC
 
-¡Hola Mundo!
+## ¡Hola Mundo!
 
 Este es mi repositorio de la asignatura "Desarrollo Web en Entorno Cliente".
 
