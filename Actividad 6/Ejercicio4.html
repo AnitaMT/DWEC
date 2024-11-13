@@ -4,6 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejercicio 4</title>
+
+    <script>
+        let menu = {
+            width: 400,
+            height: 600,
+            title: "Mi menú"
+        };
+        function multiplyNumeric(obj){
+            for (let key in obj){
+                if (typeof obj[key] == 'number') {
+                    obj[key] *= 2;
+                }
+            }
+        }
+
+        multiplyNumeric(menu);
+        console.log(`Menú =  {\n Width: ${menu.width},\n Height: ${menu.height},\n Title: ${menu.title} \n};`);
+    </script>
 </head>
 <body>
     <h1>Multiplicar propiedades numéricas por 2</h1>
