@@ -5,12 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejercicio 2</title>
+    <script type="text/javascript" rel="stylesheet" src="ejercicio2.js"></script>
 </head>
 
 <body>
     <h1>Configuración de usuario</h1>
 
-    <form method="post" action="/cambia_cuenta.php">
+    <!--Al elemento formulario, se le añade el evento onsubmit para cuando se le haga clic al botón de submit se llame a la función validarFormulario-->
+    <form method="post" action="/cambia_cuenta.php" onsubmit="validarFormulario(event)">
 
         <h2>Inicio de sesión</h2>
 
@@ -40,7 +42,7 @@
             <label for="check">Mostrar detalles de la cuenta en la pantalla de inicio de sesión</label>
         </p>
 
-        <button>Aceptar</button>
+        <button type="submit">Aceptar</button>
     </form>
 </body>
 
