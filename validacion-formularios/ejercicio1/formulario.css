@@ -1,0 +1,58 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+}
+
+form {
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    width: 300px;
+}
+
+input, button {
+    width: 100%;
+    padding: 8px;
+    margin: 10px 0;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+button {
+    background-color: #4fc9c3;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover{
+    background-color: #30948d;
+}
+
+form p.check {
+    display: inline-flex;
+    align-items: center;
+    margin: 0; 
+}
+
+form p.check label {
+    margin-left: 5px;
+    white-space: nowrap; 
+}
+
+form p.check input[type="checkbox"] {
+    margin: 0; 
+}
+
+button:disabled {
+    background-color: #ccc;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
