@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listas Desplegables</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        select {
+            margin-bottom: 20px;
+        }
+
+        .error {
+            color: red;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Formulario con Listas Desplegables Dependientes</h1>
+    <form id="formulario">
+        <label for="provincia">Provincia:</label>
+        <select id="provincia" name="provincia" required>
+            <option value="">Seleccionar provincia</option>
+        </select>
+        <span id="error-provincia" class="error" style="display: none;">Por favor, seleccione una provincia.</span>
+
+        <label for="municipio">Municipio:</label>
+        <select id="municipio" name="municipio" required disabled>
+            <option value="">Seleccionar municipio</option>
+        </select>
+        <span id="error-municipio" class="error" style="display: none;">Por favor, seleccione un municipio.</span>
+
+        <button type="button" id="boton-enviar">Enviar</button>
+    </form>
+
+
+    <script>
+// Este objeto guarda las provincias de Andalucía y sus 5 municipios.
+const datosAndalucia = {
+    "Almería": ["Almería", "El Ejido", "Roquetas de Mar", "Níjar", "Adra"],
+    "Cádiz": ["Cádiz", "Jerez de la Frontera", "Algeciras", "San Fernando", "El Puerto de Santa María"],
+    "Córdoba": ["Córdoba", "Lucena", "Puente Genil", "Montilla", "Priego de Córdoba"],
+    "Granada": ["Granada", "Motril", "Almuñécar", "Loja", "Baza"],
+    "Huelva": ["Huelva", "Lepe", "Almonte", "Moguer", "Isla Cristina"],
+    "Jaén": ["Jaén", "Linares", "Úbeda", "Andújar", "Martos"],
+    "Málaga": ["Málaga", "Marbella", "Fuengirola", "Estepona", "Torremolinos"],
+    "Sevilla": ["Sevilla", "Dos Hermanas", "Alcalá de Guadaíra", "Utrera", "Mairena del Aljarafe"]
+};
+
+// Accedo a los elementos del HTML que voy a usar, como las listas desplegables y el botón.
+const provinciaSelect = document.getElementById('provincia');
+const municipioSelect = document.getElementById('municipio');
+const botonEnviar = document.getElementById('boton-enviar');
+const errorProvincia = document.getElementById('error-provincia');
+const errorMunicipio = document.getElementById('error-municipio');
+
+// Aquí lleno la primera lista desplegable con las provincias.
+for (const provincia in datosAndalucia) {
+    const opcion = document.createElement('option'); // Creo un nuevo elemento <option>.
+    opcion.value = provincia; // El valor interno será el nombre de la provincia.
+    opcion.textContent = provincia; // Lo que verá el usuario.
+    provinciaSelect.appendChild(opcion); // Meto la opción en la lista desplegable.
+}
+
+// Se añade evento para cuando el usuario cambia la provincia seleccionada.
+provinciaSelect.addEventListener('change', function() {
+    municipioSelect.innerHTML = '<option value="">Seleccionar municipio</option>'; // Reinicio la lista de municipios.
+    municipioSelect.disabled = true; // Lo bloqueo hasta que haya una provincia seleccionada.
+    errorProvincia.style.display = 'none'; // Quito el mensaje de error si había uno.
+
+    if (provinciaSelect.value) { // Si el usuario ha elegido una provincia...
+        const municipios = datosAndalucia[provinciaSelect.value]; // Saco los municipios de esa provincia.
+        municipios.forEach(function(municipio) { // Recorro los municipios para crear opciones.
+            const opcion = document.createElement('option'); // Igual que antes, creo <option>.
+            opcion.value = municipio;
+            opcion.textContent = municipio;
+            municipioSelect.appendChild(opcion); // Y la añado a la lista de municipios.
+        });
+        municipioSelect.disabled = false; // Activo la lista de municipios.
+    }
+});
+
+// Cuando se pulse el botón de enviar, valido el formulario.
+botonEnviar.addEventListener('click', function() {
+    let formularioValido = true; // Variable booleana para confirmar que esté todo correcto.
+
+    if (!provinciaSelect.value) { // Si no han elegido provincia...
+        errorProvincia.style.display = 'block'; // Muestro el error de provincia.
+        provinciaSelect.focus(); // Llevo el foco a la lista de provincias.
+        formularioValido = false; // No se envía el formulario, ya que es incorrecto.
+    } else {
+        errorProvincia.style.display = 'none'; // Oculto el error si antes estaba visible.
+    }
+
+    if (!municipioSelect.value) { // Si no han elegido municipio...
+        errorMunicipio.style.display = 'block'; // Muestro el error de municipio.
+        if (formularioValido) { // Si ya no había otro error antes...
+            municipioSelect.focus(); // Llevo el foco a la lista de municipios.
+        }
+        formularioValido = false; // No se envía el formulario, ya que es incorrecto.
+    } else {
+        errorMunicipio.style.display = 'none'; // Oculto el error si antes estaba visible.
+    }
+
+    if (formularioValido) { // Si todo está bien se muestra mensaje de alerta de que todo fue enviado correctamente.
+        alert('Formulario enviado correctamente'); // 
+    }
+});
+    </script>
+</body>
+
+</html>
