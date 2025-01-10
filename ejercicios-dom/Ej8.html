@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej8</title>
+</head>
+
+<body>
+    <p>
+        <label for="valor1">Ingrese primer valor:</label>
+        <input type="number" id="valor1" />
+    </p>
+    <p>
+        <label for="valor2">Ingrese segundo valor:</label>
+        <input type="number" id="valor2" />
+    </p>
+    <p>
+        <select id="operacion">
+            <option value="suma">Sumar</option>
+            <option value="resta">Restar</option>
+        </select>
+    </p>
+    <p>
+        <input type="button" value="Operar" id="calculo" onclick="mostrarResultados()" />
+    </p>
+    <p id="resultado1"></p>
+    <select multiple="multiple" id="operaciones">
+        <option value="suma">Sumar</option>
+        <option value="resta">Restar</option>
+    </select>
+    <p>
+        <input type="button" value="Operar" id="calculomultiple" onclick="mostrarResultados2()" />
+    </p>
+    <p id="resultado2"></p>
+
+
+    <script>
+        function mostrarResultados() {
+            let primerValor = Number(document.getElementById("valor1").value);
+            let segundoValor = Number(document.getElementById("valor2").value);
+            let parrafoResultado1 = document.getElementById("resultado1");
+            let opcion = document.getElementById("operacion").value;
+
+            if(opcion == "suma"){
+                parrafoResultado1.textContent = `La suma es ${primerValor + segundoValor}`;
+            } else {
+                parrafoResultado1.textContent = `La diferencia es ${primerValor - segundoValor}`;
+            }
+
+        }
+
+        function mostrarResultados2(){
+            let primerValor = Number(document.getElementById("valor1").value);
+            let segundoValor = Number(document.getElementById("valor2").value);
+            let parrafoResultado2 = document.getElementById("resultado2");
+            let seleccion = document.getElementById("operaciones").value;
+
+            if(seleccion == "suma"){
+                parrafoResultado2.textContent = `La suma es ${primerValor + segundoValor}`;
+            } else {
+                parrafoResultado2.textContent = `La diferencia es ${primerValor - segundoValor}`;
+            }
+        }
+
+    </script>
+</body>
+
+</html>
