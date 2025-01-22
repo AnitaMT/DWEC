@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej14</title>
+
+    <style>
+        .oculto {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <p id="p1">Elemento 1</p>
+    <p id="p2">Elemento 2</p>
+    <p id="p3">Elemento 3</p>
+
+
+    <button id="reaparecerBtn" onclick="reaparecerElementos()">Reaparecer</button>
+
+    <script>
+        function ocultarElemento(event) {
+            event.target.classList.add("oculto");
+        }
+
+        function eliminarElemento(event) {
+            event.target.remove();
+        }
+
+        function reaparecerElementos() {
+            let elementosOcultos = document.querySelectorAll('.oculto');
+            for (let i = 0; i < elementosOcultos.length; i++) {
+                elementosOcultos[i].classList.remove('oculto');
+            }
+        }
+
+        let elementos = document.querySelectorAll('p');
+        for (let i = 0; i < elementos.length; i++) {
+            elementos[i].onclick = ocultarElemento;
+            elementos[i].ondblclick = eliminarElemento;
+        }
+        
+    </script>
+</body>
+</html>

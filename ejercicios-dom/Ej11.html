@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej11</title>
+</head>
+<body>
+    <h1>Lista de números</h1>
+    <ul id="listaNumeros"></ul>
+    <button onclick="agregarNumero()">Nuevo número</button>
+
+    <script>
+        function agregarNumero(){
+            let numeroAleatorio = Math.floor(Math.random() * 100) + 1;
+
+            let nuevoElemento = document.createElement("li");
+            nuevoElemento.textContent = numeroAleatorio;
+
+            let lista = document.getElementById("listaNumeros");
+            lista.appendChild(nuevoElemento);
+        }
+    </script>
+</body>
+</html>

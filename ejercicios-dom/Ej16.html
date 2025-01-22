@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,34 +8,116 @@
     <title>Ej 16</title>
     <script type="text/javascript">
         function genera() {
-        
+            let num1 = Math.floor(Math.random() * 100) + 1;
+            let num2 = Math.floor(Math.random() * 100) + 1;
+
+            let p1 = document.createElement('p');
+            let p2 = document.createElement('p');
+
+            let text1 = document.createTextNode(num1);
+            let text2 = document.createTextNode(num2);
+
+
+            p1.appendChild(text1);
+            p2.appendChild(text2);
+
+            let primero = document.getElementById('primero');
+            let segundo = document.getElementById('segundo');
+
+            // Limpiar las cajas antes de añadir los nuevos números
+            primero.innerHTML = '';
+            segundo.innerHTML = '';
+
+            primero.appendChild(p1);
+            segundo.appendChild(p2)
+
         }
-        
+
         function compara() {
-        
+            let primero = document.getElementById('primero').getElementsByTagName('p')[0];
+            let segundo = document.getElementById('segundo').getElementsByTagName('p')[0];
+
+            let num1 = parseInt(primero.textContent);
+            let num2 = parseInt(segundo.textContent);
+
+            let resultadoDiv = document.getElementById('resultado');
+            let pResultado = document.createElement('p');
+            let textResultado;
+
+            if (num1 > num2) {
+                textResultado = document.createTextNode(primero.textContent);
+                resultadoDiv.innerHTML = '';
+                pResultado.appendChild(textResultado);
+                resultadoDiv.appendChild(pResultado);
+
+                document.getElementById('primero').innerHTML = '';
+            } else {
+                textResultado = document.createTextNode(segundo.textContent);
+                resultadoDiv.innerHTML = '';
+                pResultado.appendChild(textResultado);
+                resultadoDiv.appendChild(pResultado);
+
+                // Vaciar la caja del segundo número
+                document.getElementById('segundo').innerHTML = '';
+            }
         }
     </script>
-        
+
     <style type="text/css">
-        #primero, #segundo, #resultado {width: 150px; height: 150px; border: thin solid silver; background: #F5F5F5; float: left; margin:20px; font-size: 6em; color: #333; text-align: center; padding: 5px; font-family:Arial, Helvetica, sans-serif;}
-        #primero p, #segundo p, #resultado p {margin:.2em 0;}
-        #resultado {margin-left:1.3em; border-color: black;}
-        .clear {clear:both;}
-        #compara {margin-left:11em;}
-        #genera {font-size:1.2em; margin-left:8em;}
+        #primero,
+        #segundo,
+        #resultado {
+            width: 150px;
+            height: 150px;
+            border: thin solid silver;
+            background: #F5F5F5;
+            float: left;
+            margin: 20px;
+            font-size: 6em;
+            color: #333;
+            text-align: center;
+            padding: 5px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        #primero p,
+        #segundo p,
+        #resultado p {
+            margin: .2em 0;
+        }
+
+        #resultado {
+            margin-left: 1.3em;
+            border-color: black;
+        }
+
+        .clear {
+            clear: both;
+        }
+
+        #compara {
+            margin-left: 11em;
+        }
+
+        #genera {
+            font-size: 1.2em;
+            margin-left: 8em;
+        }
     </style>
-</head>   
+</head>
+
 <body>
-        <input id="genera" type="button" value="¡¡ Genera !!" onclick="genera()" />
-        
-        <div id="primero"></div>
-        
-        <div id="segundo"></div>
-        
-        <div class="clear"></div>
-        
-        <input id="compara" type="button" value="<< Comparar >>" onclick="compara()" />
-        
-        <div id="resultado"></div>
+    <input id="genera" type="button" value="¡¡ Genera !!" onclick="genera()" />
+
+    <div id="primero"></div>
+
+    <div id="segundo"></div>
+
+    <div class="clear"></div>
+
+    <input id="compara" type="button" value="<< Comparar >>" onclick="compara()" />
+
+    <div id="resultado"></div>
 </body>
+
 </html>

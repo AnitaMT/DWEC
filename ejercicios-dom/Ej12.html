@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej12</title>
+</head>
+<body>
+    <h1>Tabla de Números 100x100</h1>
+    <button onclick="calcularCasiPrimos()">Calcular número casi primos</button>
+    <div id="tablaContainer"></div>
+
+    <script>
+        function crearTabla() {
+            let tablaContainer = document.getElementById('tablaContainer');
+            let tabla = document.createElement('table');
+            let contador = 1;
+
+            for (let i = 0; i < 100; i++) {
+                let fila = document.createElement('tr');
+
+                for (let j = 0; j < 100; j++) {
+                    let celda = document.createElement('td');
+                    celda.textContent = contador;
+                    celda.setAttribute('numero', contador);
+                    fila.appendChild(celda);
+                    contador++;
+                }
+
+                tabla.appendChild(fila);
+            }
+
+            tablaContainer.appendChild(tabla);
+        }
+
+        function esCasiPrimo(numero) {
+            let divisores = 0;
+            for (let i = 1; i <= numero; i++) {
+                if (numero % i === 0) {
+                    divisores++;
+                }
+                if (divisores > 3) {
+                    return false;
+                }
+            }
+            return divisores === 3;
+        }
+
+        function calcularCasiPrimos() {
+            let celdas = document.querySelectorAll('td');
+            for (let i = 0; i < celdas.length; i++) {
+                let numero = parseInt(celdas[i].getAttribute('numero'));
+                if (esCasiPrimo(numero)) {
+                    celdas[i].style.backgroundColor = 'yellow';
+                }
+            }
+        }
+
+        crearTabla();
+    </script>
+</body>
+</html>

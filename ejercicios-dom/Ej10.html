@@ -10,16 +10,17 @@
     <form action="#" method="post" id="formulario">
       <p>
         <label for="usuario">Ingrese email:</label>
-        <input type="email" id="email" />
+        <input type="email" id="email" required/>
         <span id="resultado1"></span>
       </p>
       <p>
         <label for="sitio">Ingrese sitio web:</label>
-        <input type="url" id="url" />
+        <input type="url" id="url" required />
         <span id="resultado2"></span>
       </p>
       <p>
-        <input type="submit" value="confirmar" id="confirmar" onclick="validarFormulario"/>
+        <!-- <input type="submit" value="confirmar" id="confirmar" onclick="validarFormulario"/> -->
+        <button onclick="validarFormulario()">Confirmar</button>
       </p>
     </form>
 
@@ -30,8 +31,8 @@
         let resultado1 = document.getElementById("resultado1");
         let resultado2 = document.getElementById("resultado2");
 
-        let patronEmail = "^(.+)@(\\S+)$";
-        let patronUrl =  "/\/(\w+)\/(\w+)(\?{1}.*)?$/"
+        let patronEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+        let patronUrl =  /[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/;
 
         if(patronEmail.test(email)){
           resultado1.textContent = "Correcto";

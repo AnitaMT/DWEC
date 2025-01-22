@@ -12,7 +12,32 @@
         <p>Donec sagittis, nibh nec ullamcorper tristique, <span class="importante">pede velit feugiat massa</span>, at sollicitudin justo tellus vitae justo. Vestibulum aliquet, nulla sit amet imperdiet suscipit, nunc erat laoreet est, a <a href="http://prueba">aliquam leo odio sed sem</a>. Quisque eget eros vehicula diam euismod tristique. Ut dui. Donec in metus sed risus laoreet sollicitudin. Proin et nisi non arcu sodales hendrerit. In sem. Cras id augue eu lorem dictum interdum. Donec pretium. Proin <a href="http://prueba4">egestas</a> adipiscing ligula. Duis iaculis laoreet turpis. Mauris mollis est sit amet diam. Curabitur hendrerit, eros quis malesuada tristique, ipsum odio euismod tortor, a vestibulum nisl mi at odio. <a class="importante" href="http://prueba5">Sed non lectus non est pellentesque</a> auctor.</p>
 
         <script type="text/javascript">
+            // 1. Modificar el protocolo de los enlaces
+            let enlaces = document.querySelectorAll('a');
+            for (let i = 0; i < enlaces.length; i++) {
+                let enlace = enlaces[i];
+                if (enlace.href.startsWith('http://')) {
+                    enlace.href = 'https://' + enlace.href.substring(7);
+                }
+            }
 
+            // 2. Modificar los atributos class de los párrafos
+            let parrafos = document.querySelectorAll('p');
+            for (let i = 0; i < parrafos.length; i++) {
+                let parrafo = parrafos[i];
+                if (parrafo.classList.contains('importante')) {
+                    parrafo.classList.remove('importante');
+                    parrafo.classList.add('resaltado');
+                } else {
+                    parrafo.classList.add('normal');
+                }
+            }
+
+            // 3. Añadir el atributo "name" a los enlaces con clase "importante"
+            let enlacesImportantes = document.querySelectorAll('a.importante');
+            for (let i = 0; i < enlacesImportantes.length; i++) {
+                enlacesImportantes[i].setAttribute('name', 'importante' + i);
+            }
         </script>
     </body>
 </html>
